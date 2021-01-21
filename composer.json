@@ -14,6 +14,11 @@
             "StraTDeS\\VO\\": "src"
         }
     },
+    "scripts": {
+        "test": [
+            "vendor/bin/phpunit"
+        ]
+    },
     "authors": [
         {
             "name": "Alex Hernández",
