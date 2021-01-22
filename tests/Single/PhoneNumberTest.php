@@ -1,8 +1,8 @@
 <?php
 
-namespace StraTDeS\VO\Tests;
+namespace StraTDeS\VO\Tests\Single;
 
-use StraTDeS\VO\PhoneNumber;
+use StraTDeS\VO\Single\PhoneNumber;
 use PHPUnit\Framework\TestCase;
 
 class PhoneNumberTest extends TestCase

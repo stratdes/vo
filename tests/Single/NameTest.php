@@ -1,8 +1,8 @@
 <?php
 
-namespace StraTDeS\VO\Tests;
+namespace StraTDeS\VO\Tests\Single;
 
-use StraTDeS\VO\Name;
+use StraTDeS\VO\Single\Name;
 use PHPUnit\Framework\TestCase;
 
 class NameTest extends TestCase

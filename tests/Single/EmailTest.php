@@ -1,8 +1,8 @@
 <?php
 
-namespace StraTDeS\VO\Tests;
+namespace StraTDeS\VO\Tests\Single;
 
-use StraTDeS\VO\Email;
+use StraTDeS\VO\Single\Email;
 use PHPUnit\Framework\TestCase;
 
 class EmailTest extends TestCase

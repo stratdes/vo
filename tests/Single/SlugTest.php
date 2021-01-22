@@ -1,9 +1,9 @@
 <?php
 
-namespace StraTDeS\VO\Tests;
+namespace StraTDeS\VO\Tests\Single;
 
 use PHPUnit\Framework\TestCase;
-use StraTDeS\VO\Slug;
+use StraTDeS\VO\Single\Slug;
 
 class SlugTest extends TestCase
 {

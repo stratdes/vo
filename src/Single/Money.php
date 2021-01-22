@@ -1,6 +1,6 @@
 <?php
 
-namespace StraTDeS\VO;
+namespace StraTDeS\VO\Single;
 
 class Money
 {
