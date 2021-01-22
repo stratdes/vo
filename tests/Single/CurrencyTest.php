@@ -1,8 +1,8 @@
 <?php
 
-namespace StraTDeS\VO\Tests;
+namespace StraTDeS\VO\Tests\Single;
 
-use StraTDeS\VO\Currency;
+use StraTDeS\VO\Single\Currency;
 use PHPUnit\Framework\TestCase;
 
 class CurrencyTest extends TestCase

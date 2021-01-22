@@ -1,8 +1,8 @@
 <?php
 
-namespace StraTDeS\VO\Tests;
+namespace StraTDeS\VO\Tests\Single;
 
-use StraTDeS\VO\Description;
+use StraTDeS\VO\Single\Description;
 use PHPUnit\Framework\TestCase;
 
 class DescriptionTest extends TestCase

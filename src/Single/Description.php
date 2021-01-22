@@ -1,8 +1,8 @@
 <?php
 
-namespace StraTDeS\VO;
+namespace StraTDeS\VO\Single;
 
-class Slug
+class Description
 {
     private string $value;
 
@@ -11,9 +11,9 @@ class Slug
         $this->value = $value;
     }
 
-    public static function fromValue(string $value): Slug
+    public static function fromValue(string $value): Description
     {
-        return new Slug($value);
+        return new Description($value);
     }
 
     public function value(): string
