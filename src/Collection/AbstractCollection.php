@@ -51,8 +51,8 @@ abstract class AbstractCollection implements \Countable, \ArrayAccess, \Iterator
 
     private function checkValueIsValidForCollection($value): void
     {
-        if (get_class($value) != $this->singleItemClass()) {
-            throw new \InvalidArgumentException("Provided value is not a valid " . $this->singleItemClass());
+        if (get_class($value) != $this->itemClass()) {
+            throw new \InvalidArgumentException("Provided value is not a valid " . $this->itemClass());
         }
     }
 
@@ -89,5 +89,5 @@ abstract class AbstractCollection implements \Countable, \ArrayAccess, \Iterator
         return $this;
     }
 
-    protected abstract function singleItemClass(): string;
+    protected abstract function itemClass(): string;
 }

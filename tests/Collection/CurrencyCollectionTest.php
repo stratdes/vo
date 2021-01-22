@@ -41,7 +41,7 @@ class CurrencyCollectionTest extends TestCase
             $this->assertEquals($currencyArray[$i], $currencyCollection[$i]);
         }
 
-        foreach($currencyCollection as $currency) {
+        foreach($currencyCollection as $key => $currency) {
             $this->assertInstanceOf(Currency::class, $currency);
         }
     }
