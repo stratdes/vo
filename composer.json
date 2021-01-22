@@ -16,7 +16,7 @@
     },
     "scripts": {
         "test": [
-            "XDEBUG_MODE=coverage vendor/bin/phpunit --coverage-clover=coverage.clover"
+            "XDEBUG_MODE=coverage vendor/bin/phpunit --coverage-text --coverage-clover=coverage.clover"
         ]
     },
     "authors": [

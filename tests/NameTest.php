@@ -19,4 +19,16 @@ class NameTest extends TestCase
         $this->assertInstanceOf(Name::class, $nameVO);
         $this->assertEquals($name, $nameVO->value());
     }
+
+    public function testGivenAnInvalidEmailAnExceptionIsThrown(): void
+    {
+        $this->expectException(\InvalidArgumentException::class);
+        $this->expectExceptionMessage("Name value must have at least one character");
+
+        // Arrange
+        $name = "";
+
+        // Act
+        Name::fromValue($name);
+    }
 }
