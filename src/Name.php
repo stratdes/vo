@@ -13,7 +13,15 @@ class Name
 
     public static function fromValue(string $value): Name
     {
+        self::checkValueIsAValidName($value);
         return new Name($value);
+    }
+
+    private static function checkValueIsAValidName(string $value): void
+    {
+        if (strlen($value) === 0) {
+            throw new \InvalidArgumentException("Name value must have at least one character");
+        }
     }
 
     public function value(): string
