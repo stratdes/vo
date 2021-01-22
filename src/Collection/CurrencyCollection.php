@@ -6,7 +6,7 @@ use StraTDeS\VO\Single\Currency;
 
 class CurrencyCollection extends AbstractCollection
 {
-    protected function singleItemClass(): string
+    protected function itemClass(): string
     {
         return Currency::class;
     }
