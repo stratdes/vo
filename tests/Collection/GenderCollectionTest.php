@@ -2,15 +2,13 @@
 
 namespace StraTDeS\VO\Tests\Collection;
 
-use StraTDeS\VO\Collection\CurrencyCollection;
 use PHPUnit\Framework\TestCase;
 use StraTDeS\VO\Collection\GenderCollection;
-use StraTDeS\VO\Single\Currency;
 use StraTDeS\VO\Single\Gender;
 
 class GenderCollectionTest extends TestCase
 {
-    public function testGivenValidCurrenciesAValidCurrencyCollectionIsReturned(): void
+    public function testGivenValidGendersAValidGenderCollectionIsReturned(): void
     {
         // Arrange
         $gender1 = Gender::fromValue(Gender::MALE);
@@ -43,8 +41,8 @@ class GenderCollectionTest extends TestCase
             $this->assertEquals($genderArray[$i], $genderCollection[$i]);
         }
 
-        foreach($genderCollection as $key => $currency) {
-            $this->assertInstanceOf(Gender::class, $currency);
+        foreach($genderCollection as $key => $gender) {
+            $this->assertInstanceOf(Gender::class, $gender);
         }
     }
 
