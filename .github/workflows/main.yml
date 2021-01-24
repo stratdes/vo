@@ -42,6 +42,7 @@ jobs:
 
       - name: Download Scrutinizer phar
         run: wget https://scrutinizer-ci.com/ocular.phar
+        if: matrix.php == '7.4'
 
       - name: Send Coverage Report to Scrutinizer
         run: php ocular.phar code-coverage:upload --format=php-clover coverage.clover

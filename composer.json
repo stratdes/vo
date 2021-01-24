@@ -1,28 +1,28 @@
 {
-  "name": "stratdes/vo",
-  "description": "Generic ValueObjects library",
-  "type": "library",
-  "require": {
-    "php": ">7.4"
-  },
-  "require-dev": {
-    "phpunit/phpunit": "^9.5"
-  },
-  "license": "MIT",
-  "autoload": {
-    "psr-4": {
-      "StraTDeS\\VO\\": "src"
-    }
-  },
-  "scripts": {
-    "test": [
-      "XDEBUG_MODE=coverage vendor/bin/phpunit --coverage-text --coverage-clover=coverage.clover"
+    "name": "stratdes/vo",
+    "description": "Generic ValueObjects library",
+    "type": "library",
+    "require": {
+        "php": ">=7.4 < 8.1"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.5"
+    },
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "StraTDeS\\VO\\": "src"
+        }
+    },
+    "scripts": {
+        "test": [
+            "XDEBUG_MODE=coverage vendor/bin/phpunit --coverage-text --coverage-clover=coverage.clover"
+        ]
+    },
+    "authors": [
+        {
+            "name": "Alex Hernández",
+            "email": "info@alexhernandez.info"
+        }
     ]
-  },
-  "authors": [
-    {
-      "name": "Alex Hernández",
-      "email": "info@alexhernandez.info"
-    }
-  ]
 }
