@@ -49,7 +49,7 @@ abstract class AbstractCollection implements \Countable, \ArrayAccess, \Iterator
         unset($this->items[$offset]);
     }
 
-    private function checkValueIsValidForCollection($value): void
+    protected function checkValueIsValidForCollection($value): void
     {
         if (get_class($value) != $this->itemClass()) {
             throw new \InvalidArgumentException("Provided value is not a valid " . $this->itemClass());
