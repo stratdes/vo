@@ -44,4 +44,30 @@ class CurrencyTest extends TestCase
         $this->assertEquals($iso, $currency->config()->iso());
         $this->assertEquals($decimals, $currency->config()->decimals());
     }
+
+    public function testGivenTwoEqualCurrenciesEqualReturnsTrue(): void
+    {
+        // Arrange
+        $currency1 = Currency::fromValue(Currency::USD);
+        $currency2 = Currency::fromValue(Currency::USD);
+
+        // Act
+        $equal = $currency1->equal($currency2);
+
+        // Assert
+        $this->assertTrue($equal);
+    }
+
+    public function testGivenTwoNotEqualCurrenciesEqualReturnsFalse(): void
+    {
+        // Arrange
+        $currency1 = Currency::fromValue(Currency::USD);
+        $currency2 = Currency::fromValue(Currency::EUR);
+
+        // Act
+        $equal = $currency1->equal($currency2);
+
+        // Assert
+        $this->assertFalse($equal);
+    }
 }

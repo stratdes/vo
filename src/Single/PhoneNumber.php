@@ -29,4 +29,10 @@ class PhoneNumber
     {
         return $this->number;
     }
+
+    public function equal(PhoneNumber $phoneNumber): bool
+    {
+        return $this->prefix == $phoneNumber->prefix &&
+            $this->number == $phoneNumber->number;
+    }
 }

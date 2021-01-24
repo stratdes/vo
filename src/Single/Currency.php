@@ -538,4 +538,9 @@ class Currency
     {
         return new CurrencyConfig(self::CONFIG[$this->value()]['iso'], self::CONFIG[$this->value()]['decimals']);
     }
+
+    public function equal(Currency $currency): bool
+    {
+        return $this->value == $currency->value;
+    }
 }

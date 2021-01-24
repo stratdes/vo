@@ -28,4 +28,9 @@ class Name
     {
         return $this->value;
     }
+
+    public function equal(Name $name): bool
+    {
+        return $this->value == $name->value;
+    }
 }

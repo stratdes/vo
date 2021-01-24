@@ -41,4 +41,43 @@ class MoneyTest extends TestCase
         $this->assertEquals($amountFloat, $money->amountFloat());
         $this->assertEquals($formatted, $money->formatted());
     }
+
+    public function testGivenTwoEqualMoneysEqualReturnsTrue(): void
+    {
+        // Arrange
+        $money1 = Money::create(20000, Currency::fromValue(Currency::EUR));
+        $money2 = Money::create(20000, Currency::fromValue(Currency::EUR));
+
+        // Act
+        $equal = $money1->equal($money2);
+
+        // Assert
+        $this->assertTrue($equal);
+    }
+
+    public function testGivenTwoNotEqualMoneysByAmountEqualReturnsFalse(): void
+    {
+        // Arrange
+        $money1 = Money::create(20000, Currency::fromValue(Currency::EUR));
+        $money2 = Money::create(20001, Currency::fromValue(Currency::EUR));
+
+        // Act
+        $equal = $money1->equal($money2);
+
+        // Assert
+        $this->assertFalse($equal);
+    }
+
+    public function testGivenTwoNotEqualMoneysByCurrencyEqualReturnsFalse(): void
+    {
+        // Arrange
+        $money1 = Money::create(20000, Currency::fromValue(Currency::EUR));
+        $money2 = Money::create(20000, Currency::fromValue(Currency::USD));
+
+        // Act
+        $equal = $money1->equal($money2);
+
+        // Assert
+        $this->assertFalse($equal);
+    }
 }

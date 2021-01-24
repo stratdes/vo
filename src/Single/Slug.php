@@ -20,4 +20,9 @@ class Slug
     {
         return $this->value;
     }
+
+    public function equal(Slug $slug): bool
+    {
+        return $this->value == $slug->value;
+    }
 }

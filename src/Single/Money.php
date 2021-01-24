@@ -43,4 +43,10 @@ class Money
                 $thousandsSeparator
             );
     }
+
+    public function equal(Money $money): bool
+    {
+        return $this->amount == $money->amount &&
+            $this->currency->equal($money->currency);
+    }
 }
