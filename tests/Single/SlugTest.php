@@ -20,6 +20,29 @@ class SlugTest extends TestCase
         $this->assertEquals($slug, $slugVO->value());
     }
 
+    public function badSlugDataProvider(): array
+    {
+        return [
+            ['THIS-IS-NOT-AN-SLUG'],
+            ['$-IS-NOT-AN-SLUG'],
+            ['THIS IS NOT AN SLUG'],
+            ['this is not an slug'],
+            ['THIS-IS-NOT-AN-SLUG'],
+        ];
+    }
+
+    /**
+     * @dataProvider badSlugDataProvider
+     * @param string $slug
+     */
+    public function testGivenAnInvalidSlugAnExceptionIsThrown(string $slug): void
+    {
+        $this->expectException(\InvalidArgumentException::class);
+        $this->expectExceptionMessage("$slug is not a valid slug. Only lowercase, letters, numbers and dashes are allowed.");
+
+        Slug::fromValue($slug);
+    }
+
     public function testGivenTwoEqualSlugsEqualReturnsTrue(): void
     {
         // Arrange
