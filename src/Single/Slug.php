@@ -13,7 +13,18 @@ class Slug
 
     public static function fromValue(string $value): Slug
     {
+        self::checkSlugIsValid($value);
+
         return new Slug($value);
+    }
+
+    protected static function checkSlugIsValid(string $value): void
+    {
+        if (!preg_match('/^[a-z-0-9]*$/', $value)) {
+            throw new \InvalidArgumentException(
+                "$value is not a valid slug. Only lowercase, letters, numbers and dashes are allowed."
+            );
+        }
     }
 
     public function value(): string
