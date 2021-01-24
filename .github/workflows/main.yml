@@ -7,7 +7,7 @@ jobs:
       fail-fast: true
       matrix:
         os: [ubuntu-latest]
-        php: [7.4]
+        php: [7.4, 8.0]
 
     name: StraTDeS VO - PHP ${{ matrix.php }} on ${{ matrix.os }}
 
@@ -45,3 +45,4 @@ jobs:
 
       - name: Send Coverage Report to Scrutinizer
         run: php ocular.phar code-coverage:upload --format=php-clover coverage.clover
+        if: matrix.php == '7.4'
