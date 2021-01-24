@@ -3,7 +3,6 @@
 namespace StraTDeS\VO\Tests\Single;
 
 use StraTDeS\VO\Single\Gender;
-use StraTDeS\VO\Single\Name;
 use PHPUnit\Framework\TestCase;
 
 class GenderTest extends TestCase
@@ -31,5 +30,31 @@ class GenderTest extends TestCase
 
         // Act
         Gender::fromValue($gender);
+    }
+
+    public function testGivenTwoEqualGendersEqualReturnsTrue(): void
+    {
+        // Arrange
+        $gender1 = Gender::fromValue(Gender::MALE);
+        $gender2 = Gender::fromValue(Gender::MALE);
+
+        // Act
+        $equal = $gender1->equal($gender2);
+
+        // Assert
+        $this->assertTrue($equal);
+    }
+
+    public function testGivenTwoNotEqualGendersEqualReturnsFalse(): void
+    {
+        // Arrange
+        $gender1 = Gender::fromValue(Gender::MALE);
+        $gender2 = Gender::fromValue(Gender::FEMALE);
+
+        // Act
+        $equal = $gender1->equal($gender2);
+
+        // Assert
+        $this->assertFalse($equal);
     }
 }

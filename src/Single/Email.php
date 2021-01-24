@@ -28,4 +28,9 @@ class Email
             throw new \InvalidArgumentException("$value is not a valid email");
         }
     }
+
+    public function equal(Email $email): bool
+    {
+        return $this->value == $email->value;
+    }
 }

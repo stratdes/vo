@@ -61,4 +61,9 @@ abstract class Enum
     {
         return "$value is not a valid value for this Enum";
     }
+
+    public function equal(Enum $enum): bool
+    {
+        return $this->value == $enum->value;
+    }
 }

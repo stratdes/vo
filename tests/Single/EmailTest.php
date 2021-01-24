@@ -31,4 +31,30 @@ class EmailTest extends TestCase
         // Act
         Email::fromValue($email);
     }
+
+    public function testGivenTwoEqualEmailsEqualReturnsTrue(): void
+    {
+        // Arrange
+        $email1 = Email::fromValue("foo@bar.com");
+        $email2 = Email::fromValue("foo@bar.com");
+
+        // Act
+        $equal = $email1->equal($email2);
+
+        // Assert
+        $this->assertTrue($equal);
+    }
+
+    public function testGivenTwoNotEqualEmailsEqualReturnsFalse(): void
+    {
+        // Arrange
+        $email1 = Email::fromValue("foo@bar.com");
+        $email2 = Email::fromValue("bar@foo.com");
+
+        // Act
+        $equal = $email1->equal($email2);
+
+        // Assert
+        $this->assertFalse($equal);
+    }
 }

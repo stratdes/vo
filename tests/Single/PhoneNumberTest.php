@@ -23,4 +23,43 @@ class PhoneNumberTest extends TestCase
         $this->assertEquals($cleanedPrefix, $phoneNumberVO->prefix());
         $this->assertEquals($cleanedNumber, $phoneNumberVO->number());
     }
+
+    public function testGivenTwoEqualPhoneNumbersEqualReturnsTrue(): void
+    {
+        // Arrange
+        $phoneNumber1 = PhoneNumber::create("34", "938140000");
+        $phoneNumber2 = PhoneNumber::create("34", "938140000");
+
+        // Act
+        $equal = $phoneNumber1->equal($phoneNumber2);
+
+        // Assert
+        $this->assertTrue($equal);
+    }
+
+    public function testGivenTwoNotEqualPhoneNumbersByPrefixEqualReturnsFalse(): void
+    {
+        // Arrange
+        $phoneNumber1 = PhoneNumber::create("34", "938140000");
+        $phoneNumber2 = PhoneNumber::create("53", "938140000");
+
+        // Act
+        $equal = $phoneNumber1->equal($phoneNumber2);
+
+        // Assert
+        $this->assertFalse($equal);
+    }
+
+    public function testGivenTwoNotEqualPhoneNumbersByNumberEqualReturnsFalse(): void
+    {
+        // Arrange
+        $phoneNumber1 = PhoneNumber::create("34", "938140000");
+        $phoneNumber2 = PhoneNumber::create("34", "933204444");
+
+        // Act
+        $equal = $phoneNumber1->equal($phoneNumber2);
+
+        // Assert
+        $this->assertFalse($equal);
+    }
 }

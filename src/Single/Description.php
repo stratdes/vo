@@ -20,4 +20,9 @@ class Description
     {
         return $this->value;
     }
+
+    public function equal(Description $description): bool
+    {
+        return $this->value == $description->value;
+    }
 }

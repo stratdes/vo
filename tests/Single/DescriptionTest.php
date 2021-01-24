@@ -19,4 +19,30 @@ class DescriptionTest extends TestCase
         $this->assertInstanceOf(Description::class, $descriptionVO);
         $this->assertEquals($description, $descriptionVO->value());
     }
+
+    public function testGivenTwoEqualDescriptionsEqualReturnsTrue(): void
+    {
+        // Arrange
+        $description1 = Description::fromValue("foo");
+        $description2 = Description::fromValue("foo");
+
+        // Act
+        $equal = $description1->equal($description2);
+
+        // Assert
+        $this->assertTrue($equal);
+    }
+
+    public function testGivenTwoNotEqualDescriptionsEqualReturnsFalse(): void
+    {
+        // Arrange
+        $description1 = Description::fromValue("foo");
+        $description2 = Description::fromValue("bar");
+
+        // Act
+        $equal = $description1->equal($description2);
+
+        // Assert
+        $this->assertFalse($equal);
+    }
 }

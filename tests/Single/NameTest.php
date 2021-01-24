@@ -31,4 +31,30 @@ class NameTest extends TestCase
         // Act
         Name::fromValue($name);
     }
+
+    public function testGivenTwoEqualNamesEqualReturnsTrue(): void
+    {
+        // Arrange
+        $name1 = Name::fromValue("John Smith");
+        $name2 = Name::fromValue("John Smith");
+
+        // Act
+        $equal = $name1->equal($name2);
+
+        // Assert
+        $this->assertTrue($equal);
+    }
+
+    public function testGivenTwoNotEqualNamesEqualReturnsFalse(): void
+    {
+        // Arrange
+        $name1 = Name::fromValue("John Smith");
+        $name2 = Name::fromValue("William Wallace");
+
+        // Act
+        $equal = $name1->equal($name2);
+
+        // Assert
+        $this->assertFalse($equal);
+    }
 }
