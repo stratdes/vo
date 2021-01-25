@@ -17,7 +17,7 @@ class Name
         return new Name($value);
     }
 
-    private static function checkValueIsAValidName(string $value): void
+    protected static function checkValueIsAValidName(string $value): void
     {
         if (strlen($value) === 0) {
             throw new \InvalidArgumentException("Name value must have at least one character");
