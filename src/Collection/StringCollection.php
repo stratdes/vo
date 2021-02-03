@@ -1,39 +1,33 @@
 <?php
 
+declare(strict_types=1);
 
 namespace StraTDeS\VO\Collection;
 
-
-use InvalidArgumentException;
+use TypeError;
 
 class StringCollection
 {
     /** @var string[] */
     private array $array;
 
-    private function __construct(array $array)
+    private function __construct(string ...$array)
     {
-        $this->assertAllStrings($array);
-
         $this->array = $array;
     }
 
+    /**
+     * @param array $array
+     * @return static
+     * @throws TypeError
+     */
     public static function fromArray(array $array): self
     {
-        return new static($array);
+        return new static(...$array);
     }
 
     public function toArray(): array
     {
         return $this->array;
-    }
-
-    private function assertAllStrings(array $array): void
-    {
-        foreach ($array as $item) {
-            if (is_string($item) !== true) {
-                throw new InvalidArgumentException("The element $item in the array is not a string");
-            }
-        }
     }
 }
