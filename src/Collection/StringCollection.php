@@ -9,7 +9,6 @@ use ArrayAccess;
 use Countable;
 use InvalidArgumentException;
 use Iterator;
-use StraTDeS\VO\Single\String;
 use TypeError;
 
 class StringCollection implements Countable, ArrayAccess, Iterator
