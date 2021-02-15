@@ -2,7 +2,12 @@
 
 namespace StraTDeS\VO\Collection;
 
-abstract class AbstractCollection implements \Countable, \ArrayAccess, \Iterator
+use ArrayAccess;
+use Countable;
+use InvalidArgumentException;
+use Iterator;
+
+abstract class AbstractCollection implements Countable, ArrayAccess, Iterator
 {
     protected array $items;
     protected int $position;
@@ -13,7 +18,7 @@ abstract class AbstractCollection implements \Countable, \ArrayAccess, \Iterator
         $this->position = 0;
     }
 
-    public static function create()
+    public static function create(): AbstractCollection
     {
         return new static();
     }
@@ -23,12 +28,12 @@ abstract class AbstractCollection implements \Countable, \ArrayAccess, \Iterator
         return $this->items;
     }
 
-    public function count()
+    public function count(): int
     {
         return count($this->items);
     }
 
-    public function offsetExists($offset)
+    public function offsetExists($offset): bool
     {
         return isset($this->items[$offset]);
     }
@@ -51,8 +56,8 @@ abstract class AbstractCollection implements \Countable, \ArrayAccess, \Iterator
 
     protected function checkValueIsValidForCollection($value): void
     {
-        if (get_class($value) != $this->itemClass()) {
-            throw new \InvalidArgumentException("Provided value is not a valid " . $this->itemClass());
+        if (get_class($value) != $this->itemClass() && !is_subclass_of($value, $this->itemClass())) {
+            throw new InvalidArgumentException("Provided value is not a valid {$this->itemClass()}");
         }
     }
 
@@ -61,27 +66,28 @@ abstract class AbstractCollection implements \Countable, \ArrayAccess, \Iterator
         return $this->items[$this->position];
     }
 
-    public function next()
+    public function next(): void
     {
         $this->position++;
     }
 
-    public function key()
+    public function key(): int
     {
         return $this->position;
     }
 
-    public function valid()
+    public function valid(): bool
     {
         return isset($this->items[$this->position]);
     }
 
-    public function rewind()
+    public function rewind(): void
     {
         $this->position = 0;
     }
 
-    public function add($item) {
+    public function add($item): AbstractCollection
+    {
         $this->checkValueIsValidForCollection($item);
 
         $this->items[] = $item;
@@ -89,5 +95,5 @@ abstract class AbstractCollection implements \Countable, \ArrayAccess, \Iterator
         return $this;
     }
 
-    protected abstract function itemClass(): string;
+    abstract protected function itemClass(): string;
 }
