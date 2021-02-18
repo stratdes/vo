@@ -10,4 +10,12 @@ class IdCollection extends AbstractCollection
     {
         return Id::class;
     }
+
+    /** @return string[] */
+    public function toStringArray(): array
+    {
+        return array_map(function (Id $id) {
+            return $id->getHumanReadableId();
+        }, $this->items);
+    }
 }

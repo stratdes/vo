@@ -49,6 +49,29 @@ class IdCollectionTest extends TestCase
         }
     }
 
+    public function testGivenValidIdsAValidIdCollectionRawIsReturned(): void
+    {
+        // Arrange
+        $id1 = IdStub::fromString('9b01b7c2-6f9b-11eb-9439-0242ac130002');
+        $id2 = IdStub::fromString('a23ca5ba-6f9b-11eb-9439-0242ac130002');
+        $id3 = IdStub::fromString('c449ed2a-6f9b-11eb-9439-0242ac130002');
+        $idStringArray = [
+            $id1->getHumanReadableId(),
+            $id2->getHumanReadableId(),
+            $id3->getHumanReadableId()
+        ];
+
+        // Act
+        /** @var IdCollection $idCollection */
+        $idCollection = IdCollection::create();
+        $idCollection->add($id1);
+        $idCollection->add($id2);
+        $idCollection->add($id3);
+
+       // Assert
+        $this->assertEquals($idStringArray, $idCollection->toStringArray());
+    }
+
     public function testGivenAValueByOffsetReturnsAValidValue(): void
     {
         // Arrange
