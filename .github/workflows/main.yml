@@ -1,0 +1,49 @@
+on: [push, pull_request]
+
+jobs:
+  tests:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: true
+      matrix:
+        os: [ubuntu-latest]
+        php: [7.4, 8.0]
+
+    name: StraTDeS VO - PHP ${{ matrix.php }} on ${{ matrix.os }}
+
+    steps:
+
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php }}
+          tools: phpcs, phpunit
+
+      - name: Validate Composer
+        run: composer validate
+
+      - name: Cache Dependencies
+        id: composer-cache
+        uses: actions/cache@v2
+        with:
+          path: vendor
+          key: ${{ matrix.os }}-composer-cache-${{ matrix.php }}-${{ hashFiles('**/composer.lock') }}
+          restore-keys: ${{ matrix.os }}-php-${{ matrix.php }}
+
+      - name: Install Dependencies
+        if: steps.composer-cache.outputs.cache-hit != 'true'
+        run: composer install --prefer-dist --no-progress --no-suggest
+
+      - name: Execute Tests
+        run: composer run-script test
+
+      - name: Download Scrutinizer phar
+        run: wget https://scrutinizer-ci.com/ocular.phar
+        if: matrix.php == '7.4'
+
+      - name: Send Coverage Report to Scrutinizer
+        run: php ocular.phar code-coverage:upload --format=php-clover coverage.clover
+        if: matrix.php == '7.4'
