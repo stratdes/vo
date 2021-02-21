@@ -1,6 +1,6 @@
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/stratdes/vo/badges/quality-score.png?b=1.0.0)](https://scrutinizer-ci.com/g/stratdes/vo/?branch=1.0.0)
-[![Build Status](https://scrutinizer-ci.com/g/stratdes/vo/badges/build.png?b=1.0.0)](https://scrutinizer-ci.com/g/stratdes/vo/build-status/1.0.0)
-[![Code Coverage](https://scrutinizer-ci.com/g/stratdes/vo/badges/coverage.png?b=1.0.0)](https://scrutinizer-ci.com/g/stratdes/vo/?branch=1.0.0)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/stratdes/vo/badges/quality-score.png?b=main)](https://scrutinizer-ci.com/g/stratdes/vo/?branch=main)
+[![Build Status](https://scrutinizer-ci.com/g/stratdes/vo/badges/build.png?b=main)](https://scrutinizer-ci.com/g/stratdes/vo/build-status/main)
+[![Code Coverage](https://scrutinizer-ci.com/g/stratdes/vo/badges/coverage.png?b=main)](https://scrutinizer-ci.com/g/stratdes/vo/?branch=main)
 
 # StraTDeS VO library
 
