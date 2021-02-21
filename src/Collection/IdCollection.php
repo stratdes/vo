@@ -2,7 +2,7 @@
 
 namespace StraTDeS\VO\Collection;
 
-use StraTDeS\SharedKernel\Domain\Identity\Id;
+use StraTDeS\VO\Single\Id;
 
 class IdCollection extends AbstractCollection
 {

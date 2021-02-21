@@ -5,18 +5,18 @@ namespace StraTDeS\VO\Tests\Collection;
 use InvalidArgumentException;
 use PHPUnit\Framework\TestCase;
 use stdClass;
-use StraTDeS\SharedKernel\Domain\Identity\Id;
-use StraTDeS\SharedKernel\Tests\Unit\Domain\DomainEvent\IdStub;
 use StraTDeS\VO\Collection\IdCollection;
+use StraTDeS\VO\Single\Id;
+use StraTDeS\VO\Single\UUIDV1;
 
 class IdCollectionTest extends TestCase
 {
     public function testGivenValidIdsAValidIdCollectionIsReturned(): void
     {
         // Arrange
-        $id1 = IdStub::fromString('9b01b7c2-6f9b-11eb-9439-0242ac130002');
-        $id2 = IdStub::fromString('a23ca5ba-6f9b-11eb-9439-0242ac130002');
-        $id3 = IdStub::fromString('c449ed2a-6f9b-11eb-9439-0242ac130002');
+        $id1 = UUIDV1::fromString('9b01b7c2-6f9b-11eb-9439-0242ac130002');
+        $id2 = UUIDV1::fromString('a23ca5ba-6f9b-11eb-9439-0242ac130002');
+        $id3 = UUIDV1::fromString('c449ed2a-6f9b-11eb-9439-0242ac130002');
         $idArray = [
             $id1,
             $id2,
@@ -52,7 +52,7 @@ class IdCollectionTest extends TestCase
     public function testGivenAValueByOffsetReturnsAValidValue(): void
     {
         // Arrange
-        $id1 = IdStub::fromString('9b01b7c2-6f9b-11eb-9439-0242ac130002');
+        $id1 = UUIDV1::fromString('9b01b7c2-6f9b-11eb-9439-0242ac130002');
 
         // Act
         $idCollection = IdCollection::create();
