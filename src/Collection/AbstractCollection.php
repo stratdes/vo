@@ -18,7 +18,7 @@ abstract class AbstractCollection implements Countable, ArrayAccess, Iterator
         $this->position = 0;
     }
 
-    public static function create(): AbstractCollection
+    public static function create(): static
     {
         return new static();
     }
