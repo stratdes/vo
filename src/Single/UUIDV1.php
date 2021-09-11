@@ -24,7 +24,7 @@ class UUIDV1 extends Id
         return $this->id;
     }
 
-    public static function fromString(string $string): UUIDV1
+    public static function fromString(string $string): static
     {
         return new static(Uuid::fromString($string));
     }

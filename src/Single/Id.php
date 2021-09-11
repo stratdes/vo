@@ -6,7 +6,7 @@ abstract class Id
 {
     public abstract function getId();
 
-    public abstract static function fromString(string $string): Id;
+    public abstract static function fromString(string $string): static;
 
     public abstract function getHumanReadableId(): string;
 }
