@@ -38,18 +38,18 @@ abstract class AbstractCollection implements Countable, ArrayAccess, Iterator
         return isset($this->items[$offset]);
     }
 
-    public function offsetGet($offset)
+    public function offsetGet($offset): mixed
     {
         return $this->items[$offset];
     }
 
-    public function offsetSet($offset, $value)
+    public function offsetSet($offset, $value): void
     {
         $this->checkValueIsValidForCollection($value);
         $this->items[$offset] = $value;
     }
 
-    public function offsetUnset($offset)
+    public function offsetUnset($offset): void
     {
         unset($this->items[$offset]);
     }
@@ -61,7 +61,7 @@ abstract class AbstractCollection implements Countable, ArrayAccess, Iterator
         }
     }
 
-    public function current()
+    public function current(): mixed
     {
         return $this->items[$this->position];
     }
