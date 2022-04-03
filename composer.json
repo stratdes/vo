@@ -3,7 +3,7 @@
     "description": "Generic ValueObjects library",
     "type": "library",
     "require": {
-        "php": ">=7.4 < 8.1",
+        "php": ">=8.0",
         "ramsey/uuid": ">=3.9.3"
     },
     "require-dev": {
